@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='Introduction'/>
+        <page name='What is a playground'/>
+        <page name='Basic Types'/>
+        <page name=' Arrays'/>
+        <page name='Loops'/>
+        <page name='Functions'/>
+        <page name='Closures'/>
+        <page name='Tuples, enums and typealiases'/>
+        <page name='Dictionaries'/>
+        <page name='Stucts and Classes'/>
+        <page name='Protocols'/>
+        <page name='Delegates'/>
+        <page name='Generic'/>
+        <page name='Pattern'/>
+    </pages>
+</playground>
