@@ -23,7 +23,15 @@ import Foundation
  Min: 1
  */
 // Добавь код сюда:
-
+print("-------TASK №1-------")
+func calculateMin(firstNumber: Int, secondNumber: Int) -> Int {
+    if firstNumber < secondNumber {
+        return firstNumber
+    }
+    return secondNumber
+}
+print("Min:\(calculateMin(firstNumber: 1,secondNumber: 2))")
+print("--------------------")
 /*:
 ---
 #### Задание 2
@@ -44,8 +52,16 @@ import Foundation
  */
 
 // Добавь код сюда:
-
-
+print("\n-------TASK №2-------")
+func countDown(n: Int) {
+    for i in stride(from: n, to: 0, by: -1) {
+        print(i)
+//        sleep(1)
+    }
+    print("GO!")
+}
+countDown(n: 3)
+print("--------------------")
 /*:
 ---
 #### Задание 3
@@ -58,6 +74,14 @@ import Foundation
  Hi, NIX
  */
 // Добавь код сюда:
+print("\n-------TASK №3-------")
+func repeatPrint(string: String, n: Int) {
+    for _ in 1...n {
+        print(string)
+    }
+}
+repeatPrint(string: "Hi, NIX", n: 2)
+print("--------------------")
 
 /*:
 ---
@@ -71,6 +95,16 @@ import Foundation
  [3, 2, 1]
  */
 // Добавь код сюда:
+print("\n-------TASK №4-------")
+func reverse(_ array: [Int]) -> [Int] {
+    var newArray = [Int]()
+    for i in stride(from: array.count - 1, to: -1, by: -1) {
+        newArray.append(array[i])
+    }
+    return newArray
+}
+print(reverse([1,2,3,4]))
+print("--------------------")
 
 /*:
 ---
@@ -96,7 +130,13 @@ import Foundation
  5! = 120
  */
 // Добавь код сюда:
-
+print("\n-------TASK №5-------")
+func factorial(_ n: Int) -> Int {
+    guard n >= 1 else { return 1}
+    return n * factorial(n - 1)
+}
+print(factorial(5))
+print("--------------------")
 /*:
 ---
 #### Задание 6
@@ -119,7 +159,18 @@ import Foundation
 []
  */
 // Добавь код сюда:
-
+print("\n-------TASK №6-------")
+func filterDigitLength(_ array: [Int], n: Int) -> [Int] {
+    var resultArray = [Int]()
+    for item in array {
+        if String(item).count == n {
+            resultArray.append(item)
+        }
+    }
+    return resultArray
+}
+print(filterDigitLength([88, 232, 4, 9721, 555], n: 3))
+print("--------------------")
 /*:
 ---
 #### Задание 7
@@ -141,8 +192,19 @@ import Foundation
 ["jpg", "pdf", "mp3"]
  */
 // Добавь код сюда:
-
-
+print("\n-------TASK №7-------")
+func getExtension(_ stringArray: [String]) -> [String] {
+    var resultString = [String]()
+    for item in stringArray {
+        let newItem = item.split(separator: ".")[1]
+        if !resultString.contains(String(newItem)) {
+            resultString.append(String(newItem))
+        }
+    }
+    return resultString
+}
+print(getExtension(["project1.jpg", "project1.pdf", "project1.mp3", "project2.pdf"]))
+print("--------------------")
 
 /*:
 ---
@@ -163,6 +225,29 @@ Sum of missing numbers = 29
 */
 
 // Добавь код сюда:
+print("\n-------TASK №8-------")
+func sumOfMissingNumbers(_ array: [Int]) -> Int {
+    var result = 0
+    var min = array[0]
+    var max = array[0]
+    for item in array {
+        if item < min {
+            min = item
+        }
+        if item > max {
+            max = item
+        }
+        result -= item
+    }
+    
+    for item in min...max {
+            result += item
+    }
+    
+    return result
+}
+print(sumOfMissingNumbers([1, 3, 5, 7, 10]))
+print("--------------------")
 
 /*:
 ---
@@ -183,6 +268,22 @@ _Output:_\
 "A-Bb-Cccc=Dddd"
 */
 // Добавь код сюда:
+print("\n-------TASK №9-------")
+func compoutingLetters(_ string: String) -> String {
+    var resultString: String = ""
+    for i in 0...string.count - 1 {
+        for _ in 0...i {
+            resultString.append(string[string.index(string.startIndex, offsetBy: i)])
+        }
+        if i == string.count - 1 {
+            break
+        }
+        resultString.append("-")
+    }
+    return resultString
+}
+print(compoutingLetters("abcd"))
+print("--------------------")
 
 
 /*:
@@ -203,6 +304,13 @@ This Is A Title
 */
 
 // Добавь код сюда:
+print("\n-------TASK №10-------")
+func makeTitile(_ string: String) {
+    let resultString = string.split(separator: " ").map{String($0).capitalized}.joined(separator: " ")
+    print(resultString)
+}
+makeTitile("This is a title")
+print("--------------------")
 
 /*:
 ---
@@ -220,6 +328,18 @@ D shows 2 times
 */
 
 // Добавь код сюда:
+print("\n-------TASK №11-------")
+func letterCount(array: [Character], key: Character) {
+    var keyCount = 0
+    for item in array {
+        if item == key {
+            keyCount += 1
+        }
+    }
+    print("\(key) shows \(keyCount) times")
+}
+letterCount(array: ["D", "E", "Y", "H", "A", "D"], key: "D")
+print("--------------------")
 
 /*:
 ---
@@ -243,6 +363,17 @@ False
 */
 
 // Добавь код сюда:
+print("\n-------TASK №12-------")
+func validateSubsets(subsets: [Set<Int>], array: [Int]) -> Bool {
+    for i in 0..<subsets.count {
+        if !subsets[i].isSubset(of: array) {
+            return false
+        }
+    }
+    return true
+}
+print(validateSubsets(subsets: [[1, 2], [2, 3], [1, 3]], array: [1, 2, 3]))
+print("--------------------")
 
 //: [Назад: Управление потоком](@previous)  |  Страница 6  |  [Вперед: Замыкания](@next)
 

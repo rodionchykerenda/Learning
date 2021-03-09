@@ -33,14 +33,24 @@ import Foundation
  We ❤️ Swift
  */
 // Добавь код сюда:
-
+print("\n-------TASK №1-------")
+func applyKTimes(_ k: Int,_ closure: () -> Void) {
+    for _ in 1...k {
+        closure()
+    }
+}
+applyKTimes(3) {
+    print("We ❤️ Swift")
+}
+print("--------------------")
 /*:
 ---
 #### Задание 2
  - Обьяви переменную _numbers_, представляющую собой массив, который соостоит из целых чисел. Проицинициализируй его любыми значениями.
  */
 // Добавь код сюда:
-
+print("\n-------TASK №2-------")
+var numbers = [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]
 /*:
  - Создай новый массив _multiples_, состоящий из всех кратных 3 чисел исходного массива.
  - Выведи полученный массив в консоль. Если полученный массив пустой, выведи в консоль - _No data_.
@@ -61,7 +71,8 @@ import Foundation
  No data
  */
 // Добавь код сюда:
-
+let multiples = numbers.filter({$0 % 3 == 0})
+print(multiples)
 /*:
  - Найди наибольшее число из исходного массива _numbers_ и выведи его в консоль.
  - Note: 👆 _Для реализации задачи используй метод `reduce`._
@@ -74,7 +85,8 @@ import Foundation
  Max: 12
  */
 // Добавь код сюда:
-
+print(numbers.reduce(Int.min, { max($0, $1) }))
+print("--------------------")
 /*:
 ---
 #### Задание 3
@@ -93,6 +105,14 @@ import Foundation
  */
 
 // Добавь код сюда:
+func forEach(_ array: [Int], _ closure: (Int) -> Void) {
+    for item in array {
+        closure(item)
+    }
+}
+forEach([1, 2, 3, 4]) {
+    print($0 + 1)
+}
 
 /*:
 ---
@@ -112,7 +132,21 @@ _Output:_\
 Sum of missing numbers = 29
 */
 // Добавь код сюда:
-
+print("\n-------TASK №4-------")
+func sumOfMissingNumbers(_ array: [Int]) -> Int {
+    var result = 0
+    let maximum = array.reduce(Int.min, { max($0, $1) })
+    let minimum = array.reduce(Int.max, { min($0, $1) })
+    for item in minimum...maximum {
+        if !array.contains(item){
+            result += item
+        }
+    }
+    
+    return result
+}
+print("Sum of missing numbers = \(sumOfMissingNumbers([1, 3, 5, 7, 10]))")
+print("--------------------")
 /*:
 ---
 #### Задание 5:
@@ -136,7 +170,26 @@ _Output:_\
  ] 
 */
 // Добавь код сюда:
-
+print("\n-------TASK №5-------")
+func reverseImage(_ array: inout [[Int]]) {
+    for i in 0..<array.count {
+        for j in 0..<array[i].count {
+            if array[i][j] == 1 {
+                array[i][j] = 0
+            } else if array[i][j] == 0 {
+                array[i][j] = 1
+            }
+        }
+    }
+}
+var array = [
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1],
+    ]
+reverseImage(&array)
+print(array)
+print("--------------------")
 /*:
 ---
 ## Задание 6:
@@ -145,6 +198,15 @@ _Output:_\
  - В замыкании выведи в когсоль строку "This is closure"
 */
 // Добавь код сюда:
+print("\n-------TASK №6-------")
+func smth(_ closure: () -> Void) {
+    print("This is function")
+    closure()
+}
+smth {
+    print("This is closure")
+}
+print("--------------------")
 
 
 /*:
@@ -153,10 +215,9 @@ _Output:_\
  - Упрости приведенный код
 */
 // Добавь код сюда:
-
+print("\n-------TASK №7-------")
 var animals = ["fish", "cat", "chicken", "dog"]
-let sortedAnimals = animals.sort { (one: String, two: String) -> Bool in
-  return one < two
-}
-
+animals.sort(by: <)
+print(animals)
+print("--------------------")
 //: [Назад: Функции](@previous)  |  Страница 7  |  [Вперед: Кортежи, перечисления и псевдонимы](@next)
