@@ -17,7 +17,32 @@ import Foundation
  */
 
 // Добавь код сюда:
+class User {
+    func handleAlarm() {
+        let alarm = Alarm()
+        alarm.delegete = self
+        alarm.turnOn()
+    }
+}
 
+extension User: AlarmDelegate {
+    func alarmDidRing() {
+        print("User: Need to turn it off")
+    }
+}
+
+class Alarm {
+    weak var delegete: AlarmDelegate?
+    
+    func turnOn() {
+        print("Alarm is setted")
+        delegete?.alarmDidRing()
+    }
+}
+
+protocol AlarmDelegate: class {
+    func alarmDidRing()
+}
 /*:
 ---
 ## Задание 2
@@ -26,5 +51,51 @@ import Foundation
 ![Delegate.Task2](Playground.Delegate.Task2.png)
 */
 // Добавь код сюда:
+class Customer {
+    func handleRepair() {
+        let employee = Employee()
+        employee.delegate = self
+        employee.doRepair()
+    }
+}
 
+extension Customer: EmployeeDelegate {
+    func didEndSettingUp() -> String {
+        return "Orange"
+    }
+    
+    func didFinishWork() {
+        print("Job is finished")
+    }
+    
+    
+}
+
+class Employee {
+    weak var delegate: EmployeeDelegate?
+    var color: String = ""
+    
+    func doRepair() {
+        setUp()
+        color = delegate?.didEndSettingUp() ?? "Yellow"
+        continueWork()
+        delegate?.didFinishWork()
+    }
+    
+    private func setUp() {
+        print("Employee: Setting up")
+    }
+    
+    private func continueWork() {
+        print("Continue working with selected color: \(color)")
+    }
+}
+
+protocol EmployeeDelegate: class {
+    func didEndSettingUp() -> String
+    func didFinishWork()
+}
+
+let customer = Customer()
+customer.handleRepair()
 //: [Назад: Протоколы](@previous)  |  Страница 12]  [Вперед:  Универсальные шаблоны](@next)

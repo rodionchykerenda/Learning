@@ -45,10 +45,13 @@ print(listOfNumbers.max(by: <) ?? "There are no max values")
  */
 // Добавь код сюда:
 print("\nTask 1.2:")
+
 for item in listOfNumbers {
+    
     if item % 2 != 0 {
         print(item)
     }
+    
 }
 /*:
  - Выведи в консоль сумму всех элементов массива.
@@ -60,10 +63,7 @@ for item in listOfNumbers {
  */
 // Добавь код сюда:
 print("\nTask 1.3:")
-var sum = 0
-for item in listOfNumbers {
-    sum += item
-}
+var sum = listOfNumbers.reduce(0, {$0 + $1})
 print(sum)
 /*:
  - Выведи в консоль все числа из этого массива, которые расположены по нечетным индексам.
@@ -75,10 +75,13 @@ print(sum)
  */
 // Добавь код сюда:
 print("\nTask 1.4:")
+
 for index in 0..<listOfNumbers.count {
+    
     if index % 2 != 0 {
         print(listOfNumbers[index])
     }
+    
 }
 /*:
  - Выведи в консоль числа из этого массива в обратном порядке.
@@ -90,8 +93,8 @@ for index in 0..<listOfNumbers.count {
  */
 // Добавь код сюда:
 print("\nTask 1.5:")
-for index in stride(from: listOfNumbers.count - 1, to: -1, by: -1) {
-    print(listOfNumbers[index])
+listOfNumbers.reversed().forEach { (item) in
+    print(item)
 }
 /*:
  - Получи новый массив, путем сортировки массива по возрастанию.
@@ -108,7 +111,7 @@ for index in stride(from: listOfNumbers.count - 1, to: -1, by: -1) {
  */
 // Добавь код сюда:
 print("\nTask 1.6:")
-let sortedArray = listOfNumbers.sorted(by: >)
+let sortedArray = listOfNumbers.sorted(by: <)
 print("Sorted array: \(sortedArray)")
 /*:
  - Обьяви целочисленную переменную _x_ и присвой ей любое значение.
@@ -127,12 +130,12 @@ let x = 3
 // Добавь код сюда:
 print("\nTask 1.7:")
 var resultBool = false
-for item in listOfNumbers {
-    if item == x {
-        resultBool = true
-        break
-    }
+let newArray = listOfNumbers.filter({$0 == x})
+
+if newArray.count > 0 {
+    resultBool = true
 }
+
 print(resultBool)
 print("--------------------")
 
@@ -166,10 +169,13 @@ var otherNumbers = [44 , 4, 12]
  */
 // Добавь код сюда:
 var resultArray = [Int]()
+
 for i in otherNumbers {
+    
     if listOfNumbers.contains(i) {
         resultArray.append(i)
     }
+    
 }
 
 
@@ -178,6 +184,7 @@ if resultArray.count == 0 {
 } else {
     print("Intersection: \(resultArray)")
 }
+
 print("--------------------")
 /*:
 ---
@@ -198,16 +205,22 @@ let fifthCountry = "Egypt"
 
 var stringArray: [String] = [firstCountry, secondCountry, thirdCountry, fourthCountry, fifthCountry, "Portugal", "Poland", "Wales", "Mexico", "Canada"]
 var resultStringArray = [String]()
+
 for string in stringArray {
+    
     if string.count > 5 {
+        
         if string.contains("a") {
             let newString = string.replacingOccurrences(of: "a", with: "+", options: .literal, range: nil)
             resultStringArray.append(newString)
         } else {
             resultStringArray.append(string)
         }
+        
     }
+    
 }
+
 print("Result string array: \(resultStringArray)")
 print("--------------------")
 

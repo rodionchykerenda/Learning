@@ -55,12 +55,13 @@ _Output:_\
  I like Swift!\
  I like Swift!
  */
-
 // Добавь код сюда:
 print("\n-------TASK №1-------")
+
 for _ in 1...n {
     print("I like Swift!")
 }
+
 print("--------------------")
 /*:
 ---
@@ -81,6 +82,7 @@ n = 5\
 // Добавь код сюда:
 print("\n-------TASK №2-------")
 print("\nTask 2.1:")
+
 for i in 1...n {
     print(i*i)
 }
@@ -101,12 +103,11 @@ n = 100\
  // Добавь код сюда:
 print("\nTask 2.2:")
 var i = 0
+
 while (Int(NSDecimalNumber(decimal: pow(2, i)))) <= n {
     print(pow(2, i))
     i += 1
 }
-    
-
 /*:
  - Нарисуй в консоли квадрат из `n` на `n` звездочек (⭐)
  - Example: 😉
@@ -121,11 +122,14 @@ n = 4\
  */
 // Добавь код сюда:
 print("\nTask 2.3:")
+
 for _ in 1...n {
     var helperString: String = ""
+    
     for _ in 1...n {
         helperString.append("⭐")
     }
+    
     print(helperString)
 }
 /*:
@@ -141,13 +145,17 @@ n = 4\
  */
 // Добавь код сюда:
 print("\nTask 2.4:")
+
 for i in 1...n {
     var helperString: String = ""
+    
     for _ in 1...i {
         helperString.append("⭐")
     }
+    
     print(helperString)
 }
+
 print("--------------------")
 /*:
 ---
@@ -161,17 +169,23 @@ print("--------------------")
 // MARK: -  BubbleSort
 func bubbleSort(_ array: inout [Int]) {
     var swap = true
+    
     while swap {
         swap = false
+        
         for i in 0..<array.count - 1 {
+            
             if array[i] > array[i + 1] {
                 let temp = array[i + 1]
                 array[i + 1] = array[i]
                 array[i] = temp
                 swap = true
             }
+            
         }
+        
     }
+    
 }
 
 // MARK: -  QuickSort
@@ -195,13 +209,16 @@ func partition(_ array: inout [Int]) -> Int {
     let pivot = array[array.count - 1]
     
     for j in 0..<(array.count - 1) {
+        
         if array[j] <= pivot {
             i += 1
             let swapConstant = array[i]
             array[i] = array[j]
             array[j] = swapConstant
         }
+        
     }
+    
     let swapConstant = array[i + 1]
     array[i + 1] = array[array.count - 1]
     array[array.count - 1] = swapConstant
@@ -211,13 +228,17 @@ func partition(_ array: inout [Int]) -> Int {
 
 // MARK: -  LinearSort
 func linearSort(_ array: inout [Int]) {
+    
     for j in 0..<array.count {
         var min = j
+        
         for i in j..<array.count {
+            
             if array[i] < array[min] {
                 min = i
             }
         }
+        
         let temp = array[min]
         array[min] = array[j]
         array[j] = temp
@@ -248,16 +269,22 @@ let fifthCountry = "Egypt"
 
 var stringArray: [String] = [firstCountry, secondCountry, thirdCountry, fourthCountry, fifthCountry, "Portugal", "Poland", "Wales", "Mexico", "Canada"]
 var resultStringArray = [String]()
+
 for string in stringArray {
+    
     if string.count > 5 {
-        if string.contains("a") {
+        
+        if string.lowercased().contains("a") {
             let newString = string.replacingOccurrences(of: "a", with: "+", options: .literal, range: nil)
             resultStringArray.append(newString)
         } else {
             resultStringArray.append(string)
         }
+        
     }
+    
 }
+
 print("Result string array: \(resultStringArray)")
 print("--------------------")
 
@@ -288,16 +315,22 @@ _Output:_\
 // Добавь код сюда:
 print("\n-------TASK №5-------")
 let word = "Password"
+
 func isIsogram(_ string: String) -> Bool {
     var charectersSet = Set<Character>()
+    
     for char in string {
+        
         if charectersSet.contains(char) {
             return false
         }
+        
         charectersSet.insert(char)
     }
+    
     return true
 }
+
 print(isIsogram(word))
 print("--------------------")
 /*:
@@ -317,11 +350,15 @@ _Output:_\
 // Добавь код сюда:
 print("\n-------TASK №6-------")
 var resultString = ""
+
 for char in word {
+    
     for _ in 1...3 {
         resultString.append(char)
     }
+    
 }
+
 print(resultString)
 print("--------------------")
 /*:
@@ -341,7 +378,6 @@ _Output:_\
 // Добавь код сюда:
 print("\n-------TASK №7-------")
 var newArray = [1, 2, "a", "b"] as [Any]
-
 newArray = newArray.filter({ ($0 as? String) == nil })
 print(newArray)
 print("--------------------")

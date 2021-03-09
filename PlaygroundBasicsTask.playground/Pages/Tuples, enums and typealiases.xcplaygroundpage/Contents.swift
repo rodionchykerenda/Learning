@@ -46,6 +46,7 @@ func minmax(_ array: [Int]) -> (min: Int, max: Int) {
     let minimum = array.reduce(Int.max, { min($0, $1) })
     return (minimum, maximum)
 }
+
 print(minmax([2, 3, 10, 1]))
 print("--------------------")
 /*:
@@ -72,9 +73,11 @@ enum Season: CaseIterable {
 
 func printAllSeasons() {
     print("Seasons:")
+    
     for season in Season.allCases {
         print(season)
     }
+    
 }
 
 printAllSeasons()
@@ -102,6 +105,7 @@ enum CoinType: Int {
     case dime = 10
     case quarter = 25
 }
+
 var money: [(amount: Int, type: CoinType)] = [(10, .penny),(15,.nickle),(3,.quarter),(20,.penny),(3,.dime),(7,.quarter)]
 /*:
  - Выведи в консоль общую стоимость монет.
@@ -113,9 +117,11 @@ var money: [(amount: Int, type: CoinType)] = [(10, .penny),(15,.nickle),(3,.quar
 */
 // Добавь код сюда:
 var result = 0
+
 for item in money {
     result += item.amount * item.type.rawValue
 }
+
 print(result)
 print("--------------------")
 
@@ -143,9 +149,11 @@ let thirdConstant: Text = "123abc"
 if let first = Int(firstConstant) {
     print(first)
 }
+
 if let second = Int(secondConstant) {
     print(second)
 }
+
 if let third = Int(thirdConstant) {
     print(third)
 }
@@ -163,12 +171,15 @@ typealias TupleType = (numberOne: Text?, numberTwo: Text?)?
 let first: TupleType = (numberOne: "190", numberTwo: "67")
 let second: TupleType = (numberOne: "100", numberTwo: nil)
 let third: TupleType = (numberOne: "-65", numberTwo: "70")
+
 if let numberOne = first?.numberOne, let numberTwo = first?.numberTwo {
     print(numberOne, " ", numberTwo)
 }
+
 if let numberOne = second?.numberOne, let numberTwo = second?.numberTwo {
     print(numberOne, " ", numberTwo)
 }
+
 if let numberOne = third?.numberOne, let numberTwo = third?.numberTwo {
     print(numberOne, " ", numberTwo)
 }

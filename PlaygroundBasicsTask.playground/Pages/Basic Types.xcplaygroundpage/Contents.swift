@@ -26,7 +26,6 @@ import Foundation
  - Поменяй значения переменных местами.
  - Выведи получившиеся значения в консоль. При этом в каждом варианте выводимых данных текстом напиши, какую переменную ты выводишь.
 */
-
 // Добавь код сюда:
 print("-------TASK №1-------")
 var firstValue = 1
@@ -153,10 +152,12 @@ let fifthCountry = "Egypt"
 var stringArray: [String] = [firstCountry, secondCountry, thirdCountry, fourthCountry, fifthCountry]
 
 for item in stringArray {
+    
     if item.lowercased().contains("a") {
         print(item)
     }
 }
+
 print("--------------------")
 /*:
 ---
@@ -173,23 +174,30 @@ let cyrillicUppercasedString = cyrillicString.uppercased().applyingTransform(Str
 
 func getIndexes(of character: Character, in string: String) -> [Int]? {
     var resultArray = [Int]()
+    
     for index in 0..<string.count {
+        
         if string[string.index(string.startIndex, offsetBy: index)] == character {
             resultArray.append(index)
         }
+        
     }
+    
     if resultArray.count == 0 {
         return nil
     }
+    
     return resultArray
 }
 
 let character = Character("ы")
+
 if let resultArray = getIndexes(of: character, in: cyrillicString) {
     print("Indexes of \"\(character)\" in string \"\(cyrillicString)\" are: \(resultArray)")
 } else {
     print("There are no \"\(character)\"-charecterss in \"\(cyrillicString)\"")
 }
+
 print("--------------------")
 
 /*:

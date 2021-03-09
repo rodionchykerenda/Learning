@@ -35,10 +35,12 @@ import Foundation
 // Добавь код сюда:
 print("\n-------TASK №1-------")
 func applyKTimes(_ k: Int,_ closure: () -> Void) {
+    
     for _ in 1...k {
         closure()
     }
 }
+
 applyKTimes(3) {
     print("We ❤️ Swift")
 }
@@ -71,7 +73,7 @@ var numbers = [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]
  No data
  */
 // Добавь код сюда:
-let multiples = numbers.filter({$0 % 3 == 0})
+let multiples = numbers.filter { $0 % 3 == 0 }
 print(multiples)
 /*:
  - Найди наибольшее число из исходного массива _numbers_ и выведи его в консоль.
@@ -106,10 +108,13 @@ print("--------------------")
 
 // Добавь код сюда:
 func forEach(_ array: [Int], _ closure: (Int) -> Void) {
+    
     for item in array {
         closure(item)
     }
+    
 }
+
 forEach([1, 2, 3, 4]) {
     print($0 + 1)
 }
@@ -135,16 +140,21 @@ Sum of missing numbers = 29
 print("\n-------TASK №4-------")
 func sumOfMissingNumbers(_ array: [Int]) -> Int {
     var result = 0
+    
     let maximum = array.reduce(Int.min, { max($0, $1) })
     let minimum = array.reduce(Int.max, { min($0, $1) })
+    
     for item in minimum...maximum {
+        
         if !array.contains(item){
             result += item
         }
+        
     }
     
     return result
 }
+
 print("Sum of missing numbers = \(sumOfMissingNumbers([1, 3, 5, 7, 10]))")
 print("--------------------")
 /*:
@@ -172,16 +182,23 @@ _Output:_\
 // Добавь код сюда:
 print("\n-------TASK №5-------")
 func reverseImage(_ array: inout [[Int]]) {
+    
     for i in 0..<array.count {
+        
         for j in 0..<array[i].count {
+            
             if array[i][j] == 1 {
                 array[i][j] = 0
             } else if array[i][j] == 0 {
                 array[i][j] = 1
             }
+            
         }
+        
     }
+    
 }
+
 var array = [
     [1, 0, 0],
     [0, 1, 0],
@@ -199,11 +216,12 @@ print("--------------------")
 */
 // Добавь код сюда:
 print("\n-------TASK №6-------")
-func smth(_ closure: () -> Void) {
+func printClosure(_ closure: () -> Void) {
     print("This is function")
     closure()
 }
-smth {
+
+printClosure {
     print("This is closure")
 }
 print("--------------------")
