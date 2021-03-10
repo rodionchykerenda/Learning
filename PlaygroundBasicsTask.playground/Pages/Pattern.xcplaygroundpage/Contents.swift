@@ -68,38 +68,73 @@ class PepperoniPizzaCreator: PizzaCreator {
  - Note: 👆 _Используй абстрактую фабрику_
  */
 // Добавь код сюда:
-protocol AbstractFactory {
-    func createNewTransport() -> NewAbstractProduct
-    func createSecondHandTransport() -> UsedAbstractProduct
+protocol TransportFactory {
+    func createBike() -> Bike
+    func createMotorcycle() -> Motorcycle
+    func createCar() -> Car1
 }
 
-class CarFactory: AbstractFactory {
-    func createNewTransport() -> NewAbstractProduct {
-        return NewCar()
+protocol Transport: class {
+    var isNew: Bool { get set }
+    var fuelType: String { get set }
+    var maxPepopleToTransport: Int { get set }
+}
+
+class Bike: Transport {
+    var isNew: Bool
+    var fuelType: String = "NoFuel"
+    var maxPepopleToTransport: Int = 2
+    
+    init(isNew: Bool) {
+        self.isNew = isNew
+    }
+}
+
+class Motorcycle: Transport {
+    var isNew: Bool
+    var fuelType: String = "Gas"
+    var maxPepopleToTransport: Int = 2
+    
+    init(isNew: Bool) {
+        self.isNew = isNew
+    }
+}
+
+class Car1: Transport {
+    var isNew: Bool
+    var fuelType: String = "Gas"
+    var maxPepopleToTransport: Int = 4
+    
+    init(isNew: Bool) {
+        self.isNew = isNew
+    }
+}
+
+class NewTransportFactory: TransportFactory {
+    func createBike() -> Bike {
+        return Bike(isNew: true)
     }
     
-    func createSecondHandTransport() -> UsedAbstractProduct {
-        return SecondHandCar()
+    func createMotorcycle() -> Motorcycle {
+        return Motorcycle(isNew: true)
+    }
+    
+    func createCar() -> Car1 {
+        return Car1(isNew: true)
     }
 }
 
-protocol UsedAbstractProduct: class {
-    func drive()
-}
-
-class SecondHandCar: UsedAbstractProduct {
-    func drive() {
-        print("Driving secondhand transport")
+class UsedTransportFactory: TransportFactory {
+    func createBike() -> Bike {
+        return Bike(isNew: false)
     }
-}
-
-protocol NewAbstractProduct {
-    func drive()
-}
-
-class NewCar: NewAbstractProduct {
-    func drive(){
-        print("Driving new transport")
+    
+    func createMotorcycle() -> Motorcycle {
+        return Motorcycle(isNew: false)
+    }
+    
+    func createCar() -> Car1 {
+        return Car1(isNew: false)
     }
 }
 /*:
