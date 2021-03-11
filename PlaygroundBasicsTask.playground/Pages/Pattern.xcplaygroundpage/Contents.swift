@@ -397,15 +397,18 @@ conveyor.handleTrash(handler: glassHandler)
  */
 // Добавь код сюда:
 protocol Command: class {
+    var softVersion: Version { get set }
+    
     func execute()
 }
 
-class GetterConcreteDataFromServer: Command {
-    private var softVersion: String
-    private let server: Server
+class saveCommand: Command {
+    private var server: Server
     
-    init(soft: String, server: Server) {
-        self.softVersion = soft
+    var softVersion: Version
+    
+    init(softVersion: Version, server: Server) {
+        self.softVersion = softVersion
         self.server = server
     }
     
@@ -414,10 +417,31 @@ class GetterConcreteDataFromServer: Command {
     }
 }
 
-class PrintInConsole: Command {
-    func execute() {
-        print("This command did some simple job")
+class loadCommand: Command {
+    private var server: Server
+    
+    var softVersion: Version
+    
+    init(softVersion: Version, server: Server) {
+        self.softVersion = softVersion
+        self.server = server
     }
+    
+    func execute() {
+        server.operation(software: softVersion)
+    }
+}
+
+protocol Version {
+    var softVerion: String { get set }
+}
+
+class Version1 {
+    var softVersion: String = "1"
+}
+
+class Version2 {
+    var softVersion: String = "2"
 }
 
 class UIElements {
@@ -433,7 +457,9 @@ class UIElements {
 }
 
 class Server {
-    func operation(software: String) {
-        print("Server is doing something depends on software version")
+    func operation(software: Version) {
+        if let _ = software as? Version1 {
+            print("Server is doing something depends on software version")
+        }
     }
 }
