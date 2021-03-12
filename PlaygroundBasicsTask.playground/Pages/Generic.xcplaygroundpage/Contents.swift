@@ -26,6 +26,9 @@ func areStringsEqual(x: String, _ y: String) -> Bool {
 }
 
 // Добавь код сюда:
+func areEqual<T: Equatable>(x: T, _ y: T) -> Bool {
+    return x == y
+}
 
 /*:
 ---
@@ -33,7 +36,7 @@ func areStringsEqual(x: String, _ y: String) -> Bool {
  - Оптимизируй приведенный ниже код:
 */
 func existsManual(item:String, inArray:[String]) -> Bool {
-    var index:Int = 0
+    var index: Int = 0
     var found = false
 
     while (index < inArray.count && found == false)
@@ -72,6 +75,30 @@ func existsManual(item:Person, inArray:[Person]) -> Bool
 */
 
 // Добавь код сюда:
+func myExistsManual<T: Equatable>(item: T, inArray: [T]) -> Bool {
+    var index: Int = 0
+    var found = false
 
+    while (index < inArray.count && found == false)
+    {
+        if item == inArray[index]
+        {
+            found = true
+        }
+        else
+        {
+            index = index + 1
+        }
+    }
+
+    if found
+    {
+        return true
+    }
+    else
+    {
+        return false
+    }
+}
 
 //: [Назад:  Делегаты](@previous)  |  Страница 13]  [Вперед:  Паттерны проектирования](@next)

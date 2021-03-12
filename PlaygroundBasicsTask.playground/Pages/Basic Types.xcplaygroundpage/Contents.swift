@@ -26,9 +26,15 @@ import Foundation
  - Поменяй значения переменных местами.
  - Выведи получившиеся значения в консоль. При этом в каждом варианте выводимых данных текстом напиши, какую переменную ты выводишь.
 */
-
 // Добавь код сюда:
-
+print("-------TASK №1-------")
+var firstValue = 1
+var secondValue: Int = 2
+let helper = firstValue
+firstValue = secondValue
+secondValue = helper
+print("First value: \(firstValue),\nSecond value: \(secondValue)")
+print("--------------------")
 /*:
 ---
 ### Задание 2:
@@ -36,6 +42,11 @@ import Foundation
  - Установи новое произвольное значение всем параметрам, для которых эта операция возможна.
 */
 // Добавь код сюда:
+let floatFirstValue: Float = 1.1
+let floatSecondValue: Float
+let doubleValue: Double
+floatSecondValue = 2.2
+doubleValue = 3.3
 
 
 /*:
@@ -46,20 +57,29 @@ import Foundation
  - Найди сумму всех трех констант и запишите ее в переменную типа `Float`. Результат выведи в консоль.
 */
 // Добавь код сюда:
-
+print("\n-------TASK №3-------")
+let intConstant: Int
+let floatConstant: Float
+let doubleConstant: Double
+intConstant = 18
+floatConstant = 16.4
+doubleConstant = 5.7
+print(Float(intConstant) + floatConstant + Float(doubleConstant))
 
 /*:
 - Найди произведение всех трех констант и запиши его в переменную типа `Int`. Результат выведи в консоль.
  - Note: 👆 _Помни, что тебе необходимо получить результат с минимальной погрешностью._
 */
 // Добавь код сюда:
-
+let multiplicationResult: Int = Int(floatConstant.rounded(.toNearestOrEven)) * intConstant * Int(doubleConstant.rounded(.toNearestOrEven))
+print("Multiplication result is \(multiplicationResult)")
 /*:
 - Найди остаток от деления константы типа `Float` на константу типа `Double` и запиши ее в переменную типа `Double`. Результат выведи в консоль.
 */
 // Добавь код сюда:
-
-
+let modResult: Double = (Double(floatConstant)).truncatingRemainder(dividingBy: doubleConstant)
+print("Remainder of the division is \(modResult)")
+print("--------------------")
 /*:
 ---
 #### Задание 4:
@@ -69,7 +89,13 @@ import Foundation
  - Выведи в консоль результат.
  */
 // Добавь код сюда:
-
+print("\n-------TASK №4-------")
+let firstString = "abcd"
+let firstInt = 30
+let secondInt = 40
+let resultString = firstString + String(firstInt + secondInt)
+print("\(resultString)")
+print("--------------------")
 /*:
 ---
 #### Задание 5:
@@ -79,6 +105,14 @@ import Foundation
 
  */
 // Добавь код сюда:
+print("\n-------TASK №5-------")
+var firstBool = true
+var secondBool = false
+let firstResult = firstBool && secondBool
+let secondResult = firstBool || secondBool
+print("Logical AND value is \(firstResult)")
+print("Logical OR value is \(secondResult)")
+print("--------------------")
 
 
 /*:
@@ -90,7 +124,14 @@ import Foundation
 
  */
 // Добавь код сюда:
-
+print("\n-------TASK №6-------")
+let nameSurname = "Rodion Chykerenda"
+let dateOfBirth = "14.01.2000"
+let resultStr = nameSurname + " " + dateOfBirth
+print("My name is \(nameSurname)")
+print("I was born in \(dateOfBirth)")
+print("Result string is \(resultStr)")
+print("--------------------")
 
 /*:
 ---
@@ -101,7 +142,23 @@ import Foundation
  - Если в названии страны встречается буква А, выведи ее нзавание в консоль.
 */
 // Добавь код сюда:
+print("\n-------TASK №7-------")
+let firstCountry = "Ukraine"
+let secondCountry = "France"
+let thirdCountry = "Turkey"
+let fourthCountry = "America"
+let fifthCountry = "Egypt"
 
+var stringArray: [String] = [firstCountry, secondCountry, thirdCountry, fourthCountry, fifthCountry]
+
+for item in stringArray {
+    
+    if item.lowercased().contains("a") {
+        print(item)
+    }
+}
+
+print("--------------------")
 /*:
 ---
 #### Задание 8:
@@ -111,6 +168,37 @@ import Foundation
  - Выведи его консоль.
 */
 // Добавь код сюда:
+print("\n-------TASK №8-------")
+let cyrillicString = "строкаттт"
+let cyrillicUppercasedString = cyrillicString.uppercased().applyingTransform(StringTransform.toLatin, reverse: false)
+
+func getIndexes(of character: Character, in string: String) -> [Int]? {
+    var resultArray = [Int]()
+    
+    for index in 0..<string.count {
+        
+        if string[string.index(string.startIndex, offsetBy: index)] == character {
+            resultArray.append(index)
+        }
+        
+    }
+    
+    if resultArray.count == 0 {
+        return nil
+    }
+    
+    return resultArray
+}
+
+let character = Character("ы")
+
+if let resultArray = getIndexes(of: character, in: cyrillicString) {
+    print("Indexes of \"\(character)\" in string \"\(cyrillicString)\" are: \(resultArray)")
+} else {
+    print("There are no \"\(character)\"-charecterss in \"\(cyrillicString)\"")
+}
+
+print("--------------------")
 
 /*:
 ---
