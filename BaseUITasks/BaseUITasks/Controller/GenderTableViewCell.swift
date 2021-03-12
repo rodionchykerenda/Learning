@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegistrationTableViewCell: UITableViewCell {
+class GenderTableViewCell: UITableViewCell {
     
     var selectedModel: RegistrationCellViewModel? {
         didSet {
@@ -46,7 +46,7 @@ class RegistrationTableViewCell: UITableViewCell {
 }
 
 // MARK: - PickerView DataSource, Delegate
-extension RegistrationTableViewCell: UIPickerViewDataSource, UIPickerViewDelegate {
+extension GenderTableViewCell: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

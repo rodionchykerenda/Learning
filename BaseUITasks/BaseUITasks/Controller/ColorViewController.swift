@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ColorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +73,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - Text Field Delegate Methods
-extension ViewController: UITextFieldDelegate {
+extension ColorViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }

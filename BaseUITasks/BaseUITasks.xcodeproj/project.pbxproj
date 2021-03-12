@@ -9,33 +9,33 @@
 /* Begin PBXBuildFile section */
 		D13938F425FA1B6C00D79A75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13938F325FA1B6C00D79A75 /* AppDelegate.swift */; };
 		D13938F625FA1B6C00D79A75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13938F525FA1B6C00D79A75 /* SceneDelegate.swift */; };
-		D13938F825FA1B6C00D79A75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13938F725FA1B6C00D79A75 /* ViewController.swift */; };
+		D13938F825FA1B6C00D79A75 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13938F725FA1B6C00D79A75 /* ColorViewController.swift */; };
 		D13938FB25FA1B6C00D79A75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13938F925FA1B6C00D79A75 /* Main.storyboard */; };
 		D13938FD25FA1B6D00D79A75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D13938FC25FA1B6D00D79A75 /* Assets.xcassets */; };
 		D139390025FA1B6D00D79A75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13938FE25FA1B6D00D79A75 /* LaunchScreen.storyboard */; };
-		D1780E1225FA725A00140E68 /* RegistrationPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1780E1025FA725A00140E68 /* RegistrationPickerTableViewCell.swift */; };
-		D1780E1325FA725A00140E68 /* RegistrationPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1780E1125FA725A00140E68 /* RegistrationPickerTableViewCell.xib */; };
+		D1780E1225FA725A00140E68 /* DateOfBirthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1780E1025FA725A00140E68 /* DateOfBirthTableViewCell.swift */; };
+		D1780E1325FA725A00140E68 /* DateOfBirthTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1780E1125FA725A00140E68 /* DateOfBirthTableViewCell.xib */; };
 		D18F63FB25FA5302002E0D68 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18F63FA25FA5302002E0D68 /* RegistrationViewController.swift */; };
 		D18F640525FA5D56002E0D68 /* RegistrationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18F640425FA5D56002E0D68 /* RegistrationCellViewModel.swift */; };
-		D18F640925FA61B8002E0D68 /* RegistrationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18F640725FA61B8002E0D68 /* RegistrationTableViewCell.swift */; };
-		D18F640A25FA61B8002E0D68 /* RegistrationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D18F640825FA61B8002E0D68 /* RegistrationTableViewCell.xib */; };
+		D18F640925FA61B8002E0D68 /* GenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18F640725FA61B8002E0D68 /* GenderTableViewCell.swift */; };
+		D18F640A25FA61B8002E0D68 /* GenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D18F640825FA61B8002E0D68 /* GenderTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D13938F025FA1B6C00D79A75 /* BaseUITasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseUITasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13938F325FA1B6C00D79A75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D13938F525FA1B6C00D79A75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D13938F725FA1B6C00D79A75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D13938F725FA1B6C00D79A75 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		D13938FA25FA1B6C00D79A75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D13938FC25FA1B6D00D79A75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D13938FF25FA1B6D00D79A75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D139390125FA1B6D00D79A75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D1780E1025FA725A00140E68 /* RegistrationPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPickerTableViewCell.swift; sourceTree = "<group>"; };
-		D1780E1125FA725A00140E68 /* RegistrationPickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationPickerTableViewCell.xib; sourceTree = "<group>"; };
+		D1780E1025FA725A00140E68 /* DateOfBirthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthTableViewCell.swift; sourceTree = "<group>"; };
+		D1780E1125FA725A00140E68 /* DateOfBirthTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateOfBirthTableViewCell.xib; sourceTree = "<group>"; };
 		D18F63FA25FA5302002E0D68 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D18F640425FA5D56002E0D68 /* RegistrationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCellViewModel.swift; sourceTree = "<group>"; };
-		D18F640725FA61B8002E0D68 /* RegistrationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewCell.swift; sourceTree = "<group>"; };
-		D18F640825FA61B8002E0D68 /* RegistrationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationTableViewCell.xib; sourceTree = "<group>"; };
+		D18F640725FA61B8002E0D68 /* GenderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderTableViewCell.swift; sourceTree = "<group>"; };
+		D18F640825FA61B8002E0D68 /* GenderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenderTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,9 +90,9 @@
 		D18F640025FA5374002E0D68 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D1780E1025FA725A00140E68 /* RegistrationPickerTableViewCell.swift */,
-				D18F640725FA61B8002E0D68 /* RegistrationTableViewCell.swift */,
-				D13938F725FA1B6C00D79A75 /* ViewController.swift */,
+				D1780E1025FA725A00140E68 /* DateOfBirthTableViewCell.swift */,
+				D18F640725FA61B8002E0D68 /* GenderTableViewCell.swift */,
+				D13938F725FA1B6C00D79A75 /* ColorViewController.swift */,
 				D18F63FA25FA5302002E0D68 /* RegistrationViewController.swift */,
 			);
 			path = Controller;
@@ -103,8 +103,8 @@
 			children = (
 				D13938F925FA1B6C00D79A75 /* Main.storyboard */,
 				D13938FE25FA1B6D00D79A75 /* LaunchScreen.storyboard */,
-				D18F640825FA61B8002E0D68 /* RegistrationTableViewCell.xib */,
-				D1780E1125FA725A00140E68 /* RegistrationPickerTableViewCell.xib */,
+				D18F640825FA61B8002E0D68 /* GenderTableViewCell.xib */,
+				D1780E1125FA725A00140E68 /* DateOfBirthTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,8 +174,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D18F640A25FA61B8002E0D68 /* RegistrationTableViewCell.xib in Resources */,
-				D1780E1325FA725A00140E68 /* RegistrationPickerTableViewCell.xib in Resources */,
+				D18F640A25FA61B8002E0D68 /* GenderTableViewCell.xib in Resources */,
+				D1780E1325FA725A00140E68 /* DateOfBirthTableViewCell.xib in Resources */,
 				D139390025FA1B6D00D79A75 /* LaunchScreen.storyboard in Resources */,
 				D13938FD25FA1B6D00D79A75 /* Assets.xcassets in Resources */,
 				D13938FB25FA1B6C00D79A75 /* Main.storyboard in Resources */,
@@ -189,12 +189,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D13938F825FA1B6C00D79A75 /* ViewController.swift in Sources */,
+				D13938F825FA1B6C00D79A75 /* ColorViewController.swift in Sources */,
 				D13938F425FA1B6C00D79A75 /* AppDelegate.swift in Sources */,
-				D1780E1225FA725A00140E68 /* RegistrationPickerTableViewCell.swift in Sources */,
+				D1780E1225FA725A00140E68 /* DateOfBirthTableViewCell.swift in Sources */,
 				D18F63FB25FA5302002E0D68 /* RegistrationViewController.swift in Sources */,
 				D13938F625FA1B6C00D79A75 /* SceneDelegate.swift in Sources */,
-				D18F640925FA61B8002E0D68 /* RegistrationTableViewCell.swift in Sources */,
+				D18F640925FA61B8002E0D68 /* GenderTableViewCell.swift in Sources */,
 				D18F640525FA5D56002E0D68 /* RegistrationCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

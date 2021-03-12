@@ -25,8 +25,8 @@ class RegistrationViewController: UIViewController {
     func setUpDelegates() {
         contentTableView.delegate = self
         contentTableView.dataSource = self
-        contentTableView.register(UINib(nibName: "RegistrationTableViewCell", bundle: nil), forCellReuseIdentifier: "RegistrationTableViewCell")
-        contentTableView.register(UINib(nibName: "RegistrationPickerTableViewCell", bundle: nil), forCellReuseIdentifier: "RegistrationPickerTableViewCell")
+        contentTableView.register(UINib(nibName: "GenderTableViewCell", bundle: nil), forCellReuseIdentifier: "GenderTableViewCell")
+        contentTableView.register(UINib(nibName: "DateOfBirthTableViewCell", bundle: nil), forCellReuseIdentifier: "DateOfBirthTableViewCell")
     }
     
     func styleUI() {
@@ -44,11 +44,11 @@ extension RegistrationViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "RegistrationTableViewCell", for: indexPath) as? RegistrationTableViewCell else { fatalError("Couldn't dequeue reusable cell") }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "GenderTableViewCell", for: indexPath) as? GenderTableViewCell else { fatalError("Couldn't dequeue reusable cell") }
             cell.update(cellModel: dataSource[indexPath.row])
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "RegistrationPickerTableViewCell", for: indexPath) as? RegistrationPickerTableViewCell else { fatalError("Couldn't dequeue reusable cell") }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "DateOfBirthTableViewCell", for: indexPath) as? DateOfBirthTableViewCell else { fatalError("Couldn't dequeue reusable cell") }
             cell.update(cellModel: dataSource[indexPath.row])
             return cell
         }

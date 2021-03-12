@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegistrationPickerTableViewCell: UITableViewCell {
+class DateOfBirthTableViewCell: UITableViewCell {
     
     var selectedModel: RegistrationCellViewModel? {
         didSet {
