@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ColorViewControllerDelegate {
-    func setTextField(with text: String)
+    func textFieldDidEditText(with text: String)
 }
 
 class ColorViewController: UIViewController {
@@ -22,21 +22,30 @@ class ColorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        textField.delegate = self
-        
-        view.backgroundColor = backgroundColor
-        textField.text = textFieldText
+        setUpDelegates()
+        styleUI()
     }
 }
 
 //MARK: - TextField Delegate Methods
 extension ColorViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        delegate?.setTextField(with: textField.text ?? "")
+        delegate?.textFieldDidEditText(with: textField.text ?? "")
         
         navigationController?.popViewController(animated: true)
         
         return true
+    }
+}
+
+//MARK: - Helpers
+private extension ColorViewController {
+    func setUpDelegates() {
+        textField.delegate = self
+    }
+    
+    func styleUI() {
+        view.backgroundColor = backgroundColor
+        textField.text = textFieldText
     }
 }

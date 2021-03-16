@@ -8,12 +8,6 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
     //MARK: - Actions
     @IBAction private func closeButtonTapped(_ sender: UIButton) {

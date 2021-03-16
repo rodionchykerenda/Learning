@@ -10,6 +10,8 @@ import UIKit
 class CustomAlert {
     private let backgroundAlphaTo: CGFloat = 0.6
     
+    private let animationDuration = 0.25
+    
     private let backgroundView: UIView = {
         let backgroundView = UIView()
         backgroundView.backgroundColor = .black
@@ -72,7 +74,7 @@ class CustomAlert {
         alertView.addSubview(button)
         button.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
         
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: animationDuration) {
             self.backgroundView.alpha = self.backgroundAlphaTo
         }
     }
@@ -82,7 +84,7 @@ class CustomAlert {
             return
         }
         
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: animationDuration) {
             self.backgroundView.alpha = 0
             self.alertView.removeFromSuperview()
             self.backgroundView.removeFromSuperview()

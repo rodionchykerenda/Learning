@@ -35,16 +35,11 @@ class InputTextViewController: UIViewController {
         
         navigationController?.pushViewController(destinationVC, animated: true)
     }
-    
-    //MARK: - Helpers
-    func setTextfield(with text: String) {
-        textFieldText = text
-    }
 }
 
 //MARK: - ColorViewController Delegate Methods
 extension InputTextViewController: ColorViewControllerDelegate {
-    func setTextField(with text: String) {
+    func textFieldDidEditText(with text: String) {
         textField.text = text
     }
 }
