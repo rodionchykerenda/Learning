@@ -33,7 +33,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="redView" destination="bfN-FA-ini" id="cRa-AD-7OG"/>
+                        <outlet property="colorView" destination="bfN-FA-ini" id="A8Z-kV-cSX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -7,14 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIGestureRecognizerDelegate, ForceActionPresentable {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK: - Outlets
-    @IBOutlet weak var redView: UIView!
-    
-    // MARK: - Public Properties
-    
-    var forceGestureRecognizer: ForceTouchGestureRecognizer?
+    @IBOutlet private weak var colorView: UIView!
     
     // MARK: - Private Properties
     private let panGestureRecognizer = UIPanGestureRecognizer()
@@ -25,20 +21,25 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, ForceAction
     
     private let tapGestureRecognizer = UITapGestureRecognizer()
     
+    private var forceGestureRecognizer: ForceTouchGestureRecognizer?
+    
+    private var color: UIColor? {
+        didSet {
+            colorView.backgroundColor = color
+        }
+    }
+    
     // MARK: - VC Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        redView.isUserInteractionEnabled = true
-        redView.isMultipleTouchEnabled = true
-        
+        setupGestureRecognizers()
         setUpPanGestureRecognizer()
         setUpPinchGestureRecognizer()
         setUpRotateGestureRecognizer()
         setUpTapGestureRecognizer()
         setUpForceGestureRecognizer()
     }
-    
 
     // MARK: - Actions
     @objc func handlePanGestureRecognizer(_ panRecognizer: UIPanGestureRecognizer) {
@@ -47,7 +48,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, ForceAction
         switch panRecognizer.state {
         case .began, .changed:
             let translation = panRecognizer.translation(in: self.view)
-            panRecognizer.view!.center = CGPoint(x: panRecognizer.view!.center.x + translation.x, y: panRecognizer.view!.center.y + translation.y)
+            
+            guard let view = panRecognizer.view else {
+                return
+            }
+            
+            view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
             panRecognizer.setTranslation(CGPoint.zero, in: self.view)
             
         case .failed:
@@ -61,23 +67,23 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, ForceAction
     @objc func handlePinchGestureRecognizer(_ pinchRecognizer: UIPinchGestureRecognizer) {
         guard pinchGestureRecognizer === pinchRecognizer else { return }
         
-        redView.transform = redView.transform.scaledBy(x: pinchRecognizer.scale, y: pinchRecognizer.scale)
+        colorView.transform = colorView.transform.scaledBy(x: pinchRecognizer.scale, y: pinchRecognizer.scale)
         pinchRecognizer.scale = 1
     }
     
     @objc func handleRotateGestureRecognizer(_ rotateRecognizer: UIRotationGestureRecognizer) {
         guard rotateGestureRecognizer === rotateRecognizer else { return }
         
-        redView.transform = redView.transform.rotated(by: rotateRecognizer.rotation)
+        colorView.transform = colorView.transform.rotated(by: rotateRecognizer.rotation)
         rotateRecognizer.rotation = 0
     }
     
     @objc func handleTapGestureRecognizer(_ tapRecognizer: UITapGestureRecognizer) {
         guard tapGestureRecognizer === tapRecognizer else { return }
         
-        tapRecognizer.view?.backgroundColor = UIColor(displayP3Red: CGFloat(Float.random(in: 0...1)), green: CGFloat(Float.random(in: 0...1)), blue: CGFloat(Float.random(in: 0...1)), alpha: 1)
-        redView.transform = .identity
-        redView.center = view.center
+        color = generateRandomColor()
+        colorView.transform = .identity
+        colorView.center = view.center
     }
     
     //MARK:- UIGestureRecognizerDelegate Methods
@@ -92,44 +98,53 @@ private extension ViewController {
     func setUpPanGestureRecognizer() {
         panGestureRecognizer.addTarget(self, action: #selector(handlePanGestureRecognizer(_:)))
         panGestureRecognizer.delegate = self
-        redView.addGestureRecognizer(panGestureRecognizer)
+        colorView.addGestureRecognizer(panGestureRecognizer)
     }
     
     func setUpPinchGestureRecognizer() {
         pinchGestureRecognizer.addTarget(self, action: #selector(handlePinchGestureRecognizer(_:)))
         pinchGestureRecognizer.delegate = self
-        redView.addGestureRecognizer(pinchGestureRecognizer)
+        colorView.addGestureRecognizer(pinchGestureRecognizer)
     }
     
     func setUpRotateGestureRecognizer() {
         rotateGestureRecognizer.addTarget(self, action: #selector(handleRotateGestureRecognizer(_:)))
         rotateGestureRecognizer.delegate = self
-        redView.addGestureRecognizer(rotateGestureRecognizer)
+        colorView.addGestureRecognizer(rotateGestureRecognizer)
     }
     
     func setUpTapGestureRecognizer() {
         tapGestureRecognizer.addTarget(self, action: #selector(handleTapGestureRecognizer(_:)))
         tapGestureRecognizer.delegate = self
-        redView.addGestureRecognizer(tapGestureRecognizer)
+        colorView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     func setUpForceGestureRecognizer() {
         forceGestureRecognizer = ForceTouchGestureRecognizer(threshold: 0.7)
         forceGestureRecognizer?.delegate = self
-        redView.addGestureRecognizer(forceGestureRecognizer!)
+        colorView.addGestureRecognizer(forceGestureRecognizer!)
         
         forceGestureRecognizer?.forceUpdate = { [weak self] force in
             var red: CGFloat = 0
             var green: CGFloat = 0
             var blue: CGFloat = 0
             var alpha: CGFloat = 0
-            self?.redView.backgroundColor?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+            self?.color?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
             self?.view.backgroundColor = UIColor(red: red * force, green: green * force, blue: blue * force, alpha: 1)
         }
         
         forceGestureRecognizer?.endedStateCallback = {
             self.view.backgroundColor = UIColor.black
         }
+    }
+    
+    func generateRandomColor() -> UIColor {
+        return UIColor(displayP3Red: CGFloat(Float.random(in: 0...1)), green: CGFloat(Float.random(in: 0...1)), blue: CGFloat(Float.random(in: 0...1)), alpha: 1)
+    }
+    
+    func setupGestureRecognizers() {
+        colorView.isUserInteractionEnabled = true
+        colorView.isMultipleTouchEnabled = true
     }
 }
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D19F264425FF58240062F9AE /* RecognizerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F264325FF58240062F9AE /* RecognizerState.swift */; };
-		D19F264825FF587B0062F9AE /* ForceActionPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19F264725FF587B0062F9AE /* ForceActionPresentable.swift */; };
 		D1D89A2525FB7D90006672EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D89A2425FB7D90006672EC /* AppDelegate.swift */; };
 		D1D89A2725FB7D90006672EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D89A2625FB7D90006672EC /* SceneDelegate.swift */; };
 		D1D89A2925FB7D90006672EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D89A2825FB7D90006672EC /* ViewController.swift */; };
@@ -20,7 +19,6 @@
 
 /* Begin PBXFileReference section */
 		D19F264325FF58240062F9AE /* RecognizerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizerState.swift; sourceTree = "<group>"; };
-		D19F264725FF587B0062F9AE /* ForceActionPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceActionPresentable.swift; sourceTree = "<group>"; };
 		D1D89A2125FB7D90006672EC /* Gestures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gestures.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D89A2425FB7D90006672EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1D89A2625FB7D90006672EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,14 +77,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		D19F264625FF583A0062F9AE /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				D19F264725FF587B0062F9AE /* ForceActionPresentable.swift */,
-			);
-			name = Protocol;
-			sourceTree = "<group>";
-		};
 		D1D89A1825FB7D90006672EC = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +99,6 @@
 				D19F264225FF57F60062F9AE /* Model */,
 				D19F264125FF57EF0062F9AE /* View */,
 				D19F264025FF57E20062F9AE /* Controller */,
-				D19F264625FF583A0062F9AE /* Protocol */,
 				D19F263F25FF57B70062F9AE /* Supporting Files */,
 				D1D89A3225FB7D91006672EC /* Info.plist */,
 			);
@@ -187,7 +176,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1D89A2925FB7D90006672EC /* ViewController.swift in Sources */,
-				D19F264825FF587B0062F9AE /* ForceActionPresentable.swift in Sources */,
 				D1D89A3B25FBBD21006672EC /* ForceTouchGestureRecognizer.swift in Sources */,
 				D19F264425FF58240062F9AE /* RecognizerState.swift in Sources */,
 				D1D89A2525FB7D90006672EC /* AppDelegate.swift in Sources */,
