@@ -16,7 +16,7 @@ class ColorViewController: UIViewController {
     @IBOutlet private weak var textField: UITextField!
     
     //MARK: - Public Properties
-    var delegate: ColorViewControllerDelegate?
+    var colorViewControllerDelegate: ColorViewControllerDelegate?
     var backgroundColor: UIColor?
     var textFieldText: String?
     
@@ -30,7 +30,7 @@ class ColorViewController: UIViewController {
 //MARK: - TextField Delegate Methods
 extension ColorViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        delegate?.textFieldDidEditText(with: textField.text ?? "")
+        colorViewControllerDelegate?.textFieldDidEditText(with: textField.text ?? "")
         
         navigationController?.popViewController(animated: true)
         

@@ -29,7 +29,7 @@ class InputTextViewController: UIViewController {
         
         destinationVC.backgroundColor = sender.backgroundColor
         destinationVC.textFieldText = textField.text
-        destinationVC.delegate = self
+        destinationVC.colorViewControllerDelegate = self
         
         textField.resignFirstResponder()
         
