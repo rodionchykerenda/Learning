@@ -29,7 +29,7 @@ class InputTextViewController: UIViewController {
         
         destinationVC.backgroundColor = sender.backgroundColor
         destinationVC.textFieldText = textField.text
-        destinationVC.colorViewControllerDelegate = self
+        destinationVC.delegate = self
         
         textField.resignFirstResponder()
         
@@ -39,7 +39,7 @@ class InputTextViewController: UIViewController {
 
 //MARK: - ColorViewController Delegate Methods
 extension InputTextViewController: ColorViewControllerDelegate {
-    func textFieldDidEditText(with text: String) {
+    func colorViewController(_ sender: ColorViewController, didPressReturnWithText text: String) {
         textField.text = text
     }
 }
