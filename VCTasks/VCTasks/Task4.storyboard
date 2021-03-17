@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Modal Veiws View Controller-->
+        <scene sceneID="pOe-gU-y5X">
+            <objects>
+                <viewController storyboardIdentifier="ModalVeiwsViewController" id="Wh8-IN-6Dp" customClass="ModalVeiwsViewController" customModule="VCTasks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cPX-J1-Oy3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="edU-hP-C3n">
+                                <rect key="frame" x="94" y="289.5" width="226" height="317"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrn-jd-4Gb">
+                                        <rect key="frame" x="64" y="0.0" width="98" height="30"/>
+                                        <state key="normal" title="1. Simple Alert">
+                                            <color key="titleColor" name="AccentColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="simpleAlertButtonTapped:" destination="Wh8-IN-6Dp" eventType="touchUpInside" id="pM4-0x-VwX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8r-WG-tgm">
+                                        <rect key="frame" x="35.5" y="41" width="155" height="30"/>
+                                        <state key="normal" title="2. Simple Action Sheet"/>
+                                        <connections>
+                                            <action selector="simpleActionSheetButtonTapped:" destination="Wh8-IN-6Dp" eventType="touchUpInside" id="J6i-OJ-3d7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8e-TD-vla">
+                                        <rect key="frame" x="9.5" y="82" width="207" height="30"/>
+                                        <state key="normal" title="3. Alert with distractive button"/>
+                                        <connections>
+                                            <action selector="alertWithDistractiveButtonTapped:" destination="Wh8-IN-6Dp" eventType="touchUpInside" id="LiI-UH-yRR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLB-wi-fBv">
+                                        <rect key="frame" x="0.0" y="123" width="226" height="30"/>
+                                        <state key="normal" title="4. Alert with more than 2 buttons"/>
+                                        <connections>
+                                            <action selector="alertWithMoreThan2ButtonsTapped:" destination="Wh8-IN-6Dp" eventType="touchUpInside" id="fec-Yl-M43"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZY-Xk-YJC">
+                                        <rect key="frame" x="31.5" y="164" width="163" height="30"/>
+                                        <state key="normal" title="5. Alert with UITextField"/>
+                                        <connections>
+                                            <action selector="alertWithTextFieldButtonTapped:" destination="Wh8-IN-6Dp" eventType="touchUpInside" id="c8A-np-Cjl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jP-i5-ps3">
+                                        <rect key="frame" x="68" y="205" width="90" height="30"/>
+                                        <state key="normal" title="6. Share Text"/>
+                                        <connections>
+                                            <action selector="shreTextButtonTapped:" destination="Wh8-IN-6Dp" eventType="touchUpInside" id="FGm-DL-RNT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxI-D9-npc">
+                                        <rect key="frame" x="62.5" y="246" width="101" height="30"/>
+                                        <state key="normal" title="7. Share Image"/>
+                                        <connections>
+                                            <action selector="shareImageButtonTapped:" destination="Wh8-IN-6Dp" eventType="touchUpInside" id="xGc-pn-mqK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPc-vR-Fue">
+                                        <rect key="frame" x="59" y="287" width="108" height="30"/>
+                                        <state key="normal" title="8. Custom Alert"/>
+                                        <connections>
+                                            <action selector="customAlertButtonPressed:" destination="Wh8-IN-6Dp" eventType="touchUpInside" id="bvU-rK-d48"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="38B-PF-ZyJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="edU-hP-C3n" firstAttribute="centerY" secondItem="cPX-J1-Oy3" secondAttribute="centerY" id="5y7-kS-eb0"/>
+                            <constraint firstItem="edU-hP-C3n" firstAttribute="centerX" secondItem="cPX-J1-Oy3" secondAttribute="centerX" id="zhX-Zz-Byw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qyE-Li-h2z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3" y="-10"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

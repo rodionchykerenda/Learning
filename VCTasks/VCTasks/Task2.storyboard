@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kUw-q6-Wc4">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Input Text View Controller-->
+        <scene sceneID="5jn-cu-ZRW">
+            <objects>
+                <viewController storyboardIdentifier="InputTextViewController" id="kUw-q6-Wc4" customClass="InputTextViewController" customModule="VCTasks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PDe-4C-Nw1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="146-Ds-cp0">
+                                <rect key="frame" x="157" y="94" width="100" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="YUU-Pv-dbK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGd-ju-bA8">
+                                <rect key="frame" x="107" y="368" width="200" height="60"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="MK0-gZ-br7"/>
+                                    <constraint firstAttribute="height" constant="60" id="PDF-Bt-qr5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Push Green">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="pushButtonTapped:" destination="kUw-q6-Wc4" eventType="touchUpInside" id="TQX-5X-sVD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1a-Z1-CK3">
+                                <rect key="frame" x="107" y="218" width="200" height="60"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="M0i-0Y-B7u"/>
+                                    <constraint firstAttribute="height" constant="60" id="PTB-H4-yKu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Push Red">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="pushButtonTapped:" destination="kUw-q6-Wc4" eventType="touchUpInside" id="mBS-FB-o9X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qas-9j-0Fm">
+                                <rect key="frame" x="107" y="518" width="200" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="8Cu-Kv-2Ru"/>
+                                    <constraint firstAttribute="width" constant="200" id="pdj-qC-F4I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Push Blue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="pushButtonTapped:" destination="kUw-q6-Wc4" eventType="touchUpInside" id="QVM-pY-vBK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ob5-sa-Ni4"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="qas-9j-0Fm" firstAttribute="centerX" secondItem="PDe-4C-Nw1" secondAttribute="centerX" id="56e-L9-n9y"/>
+                            <constraint firstItem="qas-9j-0Fm" firstAttribute="top" secondItem="KGd-ju-bA8" secondAttribute="bottom" constant="90" id="5ZS-Lw-oOX"/>
+                            <constraint firstItem="Y1a-Z1-CK3" firstAttribute="centerX" secondItem="PDe-4C-Nw1" secondAttribute="centerX" id="Bqk-gP-grf"/>
+                            <constraint firstItem="KGd-ju-bA8" firstAttribute="centerX" secondItem="PDe-4C-Nw1" secondAttribute="centerX" id="FVP-sA-IOw"/>
+                            <constraint firstItem="146-Ds-cp0" firstAttribute="centerX" secondItem="PDe-4C-Nw1" secondAttribute="centerX" id="Ohb-sm-X7M"/>
+                            <constraint firstItem="Y1a-Z1-CK3" firstAttribute="top" secondItem="146-Ds-cp0" secondAttribute="bottom" constant="90" id="Yqv-gm-zAg"/>
+                            <constraint firstItem="146-Ds-cp0" firstAttribute="top" secondItem="Ob5-sa-Ni4" secondAttribute="top" constant="50" id="qaB-nd-AX5"/>
+                            <constraint firstItem="KGd-ju-bA8" firstAttribute="top" secondItem="Y1a-Z1-CK3" secondAttribute="bottom" constant="90" id="xAg-0W-XuC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3ja-gi-Ez7"/>
+                    <connections>
+                        <outlet property="textField" destination="146-Ds-cp0" id="DXE-gm-eHM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hio-vH-d1t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700" y="-5.3571428571428568"/>
+        </scene>
+        <!--Color View Controller-->
+        <scene sceneID="1pN-kI-0bC">
+            <objects>
+                <viewController storyboardIdentifier="ColorViewController" id="h4S-aL-3A1" customClass="ColorViewController" customModule="VCTasks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yhQ-zJ-X28">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b3R-aU-GcP">
+                                <rect key="frame" x="157" y="94" width="100" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="vmL-RM-ipC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XWI-Yu-9Jw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b3R-aU-GcP" firstAttribute="centerX" secondItem="yhQ-zJ-X28" secondAttribute="centerX" id="HKK-2N-PiL"/>
+                            <constraint firstItem="b3R-aU-GcP" firstAttribute="top" secondItem="XWI-Yu-9Jw" secondAttribute="top" constant="50" id="VKJ-7f-Bit"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="b3R-aU-GcP" id="C34-n8-Sq7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h6n-0X-Nf4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1599" y="-5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
