@@ -110,11 +110,11 @@
             </objects>
             <point key="canvasLocation" x="-80" y="76"/>
         </scene>
-        <!--VC2-->
+        <!--Devices-->
         <scene sceneID="NGr-bn-icA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eKH-rC-QnT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="VC2" image="square" catalog="system" id="mR8-yS-HP8"/>
+                    <tabBarItem key="tabBarItem" title="Devices" image="square" catalog="system" id="mR8-yS-HP8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hbv-uh-vYX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

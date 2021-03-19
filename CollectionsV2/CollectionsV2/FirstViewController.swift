@@ -13,7 +13,7 @@ class FirstViewController: UIViewController {
     @IBOutlet private weak var contentTableView: UITableView!
     
     //MARK: - Private Properties
-    private var dataSource = [DeviceModel]() {
+    private var dataSource: [DeviceModel] = DeviceManager.makeAllDevicesModelArray() {
         didSet {
             contentTableView.reloadData()
         }
@@ -24,8 +24,7 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         
         setUpDelegates()
-        dataSource = DeviceManager.makeAllDevicesModelArray()
-        self.title = "Devices"
+        nameViewController()
     }
 }
 
@@ -62,6 +61,10 @@ private extension FirstViewController {
         contentTableView.delegate = self
         contentTableView.dataSource = self
         contentTableView.register(UINib(nibName: DeviceTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DeviceTableViewCell.identifier)
+    }
+    
+    func nameViewController() {
+        self.title = "Devices"
     }
 }
 

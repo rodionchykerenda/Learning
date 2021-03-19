@@ -13,12 +13,12 @@ protocol DetailViewControllerDelegate: class {
 }
 
 class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
-
+    
     //MARK: - Outlets
     @IBOutlet private weak var deviceImage: UIImageView!
     @IBOutlet private weak var modelTextField: UITextField!
     @IBOutlet private weak var propertiesView: UIView!
-    @IBOutlet weak var infoTextView: UITextView!
+    @IBOutlet private weak var infoTextView: UITextView!
     
     //MARK: - Private Properties
     private var imageTapGestureRecognizer = UITapGestureRecognizer()
@@ -56,7 +56,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
 }
 
@@ -70,6 +70,11 @@ extension DetailViewController: UITextFieldDelegate {
 //MARK: - Helpers
 private extension DetailViewController {
     func setUpUI() {
+        imageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapOnImage(_:)))
+        deviceImage.addGestureRecognizer(imageTapGestureRecognizer)
+        deviceImage.image = UIImage(named: selectedDevice?.image ?? "Unknown.pdf")
+        addNavigationBarSaveButton()
+        
         if let device = selectedDevice {
             setUpUIForDeviceScreen(device)
         } else {
@@ -86,24 +91,14 @@ private extension DetailViewController {
     }
     
     func setUpUIForAddScreen() {
-        imageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapOnImage(_:)))
-        imageTapGestureRecognizer.delegate = self
         deviceImage.isUserInteractionEnabled = true
-        deviceImage.addGestureRecognizer(imageTapGestureRecognizer)
-        deviceImage.image = UIImage(named: "Unknown.pdf")
-        
-        addNavigationBarSaveButton()
         
         modelTextField.placeholder = "Enter model name"
     }
     
     func setUpUIForDeviceScreen(_ device: DeviceModel) {
-        imageTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapOnImage(_:)))
-        deviceImage.addGestureRecognizer(imageTapGestureRecognizer)
         deviceImage.isUserInteractionEnabled = false
-        deviceImage.image = UIImage(named: device.image ?? "Unknown.pdf")
         
-        addNavigationBarSaveButton()
         addNavigationBarEditButton()
         
         modelTextField.text = device.name
@@ -127,15 +122,15 @@ private extension DetailViewController {
     
     func addNavigationBarSaveButton() {
         let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSaveButtonTap(_:)))
-        self.navigationItem.rightBarButtonItem = saveButton
+        navigationItem.rightBarButtonItem = saveButton
     }
     
     func addNavigationBarEditButton() {
         editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(handleEditButtonTap(_:)))
-        self.navigationItem.rightBarButtonItems?.append(editButton!)
+        navigationItem.rightBarButtonItems?.append(editButton!)
     }
     
-    func makeRequiredFieldsAlert() {
+    func presentRequiredFieldsAlert() {
         modelTextField.placeholder = "Required field"
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         let requiredFieldsAlert = UIAlertController(title: "Not enough information added", message: "Fill all required fields before save this device", preferredStyle: .alert)
@@ -144,19 +139,20 @@ private extension DetailViewController {
     }
     
     @objc func handleSaveButtonTap(_ sender: UIButton) {
-        if let modelName = modelTextField.text, modelTextField.text != "" {
-            if let selectedSection = selectedSection, let _ = editButton, let selectedDevice = selectedDevice {
-                delegate?.detailViewController(self, didEdit: selectedDevice, in: selectedSection, to: DeviceModel(name: modelName, description: infoTextView.text ?? "", ppi: nil, diagonal: nil, image: selectedDevice.image))
-            } else if let selectedSection = selectedSection, editButton == nil {
-                delegate?.detailViewController(self, didAdd: DeviceModel(name: modelName, description: infoTextView.text ?? "", ppi: nil, diagonal: nil, image: nil), to: selectedSection)
-            } else if selectedSection == nil, let _ = editButton, let selectedDevice = selectedDevice {
-                delegate?.detailViewController(self, didEdit: selectedDevice, in: nil, to: DeviceModel(name: modelName, description: infoTextView.text ?? "", ppi: nil, diagonal: nil, image: selectedDevice.image))
-            }
-            
-            navigationController?.popViewController(animated: true)
-        } else {
-            makeRequiredFieldsAlert()
+        guard let modelName = modelTextField.text, modelTextField.text != "" else {
+            presentRequiredFieldsAlert()
+            return
         }
+        
+        if let selectedSection = selectedSection, let _ = editButton, let selectedDevice = selectedDevice {
+            delegate?.detailViewController(self, didEdit: selectedDevice, in: selectedSection, to: DeviceModel(name: modelName, description: infoTextView.text ?? "", ppi: nil, diagonal: nil, image: selectedDevice.image))
+        } else if let selectedSection = selectedSection, editButton == nil {
+            delegate?.detailViewController(self, didAdd: DeviceModel(name: modelName, description: infoTextView.text ?? "", ppi: nil, diagonal: nil, image: nil), to: selectedSection)
+        } else if selectedSection == nil, let _ = editButton, let selectedDevice = selectedDevice {
+            delegate?.detailViewController(self, didEdit: selectedDevice, in: nil, to: DeviceModel(name: modelName, description: infoTextView.text ?? "", ppi: nil, diagonal: nil, image: selectedDevice.image))
+        }
+        
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func handleEditButtonTap(_ sender: UIButton) {

@@ -19,13 +19,13 @@ class ThirdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpDelegate()
+        setUpTableView()
     }
 }
 
 //MARK: - Helpers
 private extension ThirdViewController {
-    func setUpDelegate() {
+    func setUpTableView() {
         contentTableView.delegate = self
         contentTableView.dataSource = self
         contentTableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CategoryTableViewCell")

@@ -21,7 +21,6 @@ class SecondViewController: UIViewController {
         
         setUpDelegates()
         setUpTableView()
-        self.title = "Devices"
     }
 }
 
@@ -32,9 +31,8 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if !dataSource[section].isExpanded {
-            return 0
-        }
+        guard dataSource[section].isExpanded else { return 0 }
+        
         return dataSource[section].data.count
     }
     
@@ -108,30 +106,19 @@ private extension SecondViewController {
         contentTableView.estimatedRowHeight = 100
         contentTableView.rowHeight = UITableView.automaticDimension
         contentTableView.register(UINib(nibName: DeviceTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DeviceTableViewCell.identifier)
+        contentTableView.register(CustomHeaderView.self, forHeaderFooterViewReuseIdentifier: CustomHeaderView.reuseIdentifier)
     }
     
     func setUpSection(_ tableView: UITableView, name: String, section: Int) -> UIView? {
-        let viewForHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width - 20, height: 50))
-        let sectionNameLabel = UILabel(frame: CGRect(x: 20, y: 10, width: viewForHeader.frame.size.width - 40, height: viewForHeader.frame.size.height - 20))
-        let addButton = UIButton(frame: CGRect(x: viewForHeader.frame.size.width - 40, y: 10, width: 40, height: viewForHeader.frame.size.height - 20))
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: CustomHeaderView.reuseIdentifier) as? CustomHeaderView else { fatalError() }
         
-        sectionNameLabel.text = name
-        sectionNameLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        viewForHeader.addSubview(sectionNameLabel)
+        view.delegate = self
         
-        viewForHeader.isUserInteractionEnabled = true
-        let tapGestureRecognizer = SectionTapGestureRecognizer(target: self, action: #selector(handleTapOnSection(_:)), section: section)
-        viewForHeader.addGestureRecognizer(tapGestureRecognizer)
+        view.update(name: name, index: section)
         
-        addButton.addTarget(self, action: #selector(handleAddButtonPress(_:)), for: .touchUpInside)
-        addButton.setTitle("Add", for: .normal)
-        addButton.tag = section
-        addButton.setTitleColor(.link, for: .normal)
-        viewForHeader.addSubview(addButton)
+        styleSectionView(view.contentView)
         
-        styleSectionView(viewForHeader)
-        
-        return viewForHeader
+        return view
     }
     
     func styleSectionView(_ view: UIView) {
@@ -141,33 +128,6 @@ private extension SecondViewController {
         view.clipsToBounds = true
         view.layer.borderWidth = 2
         view.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-    }
-    
-    @objc func handleTapOnSection(_ tapGestureRecognizer: SectionTapGestureRecognizer) {
-        let section = tapGestureRecognizer.sectionSelected
-        var indexPathArray = [IndexPath]()
-        
-        for row in dataSource[section].data.indices {
-            let indexPathToChange = IndexPath(row: row, section: section)
-            indexPathArray.append(indexPathToChange)
-        }
-        
-        let isExpanded = dataSource[section].isExpanded
-        dataSource[section].isExpanded = !isExpanded
-        
-        if isExpanded {
-            contentTableView.deleteRows(at: indexPathArray, with: .fade)
-        } else {
-            contentTableView.insertRows(at: indexPathArray, with: .fade)
-        }
-    }
-    
-    @objc func handleAddButtonPress(_ sender: UIButton) {
-        let detailsViewController = DetailViewController(nibName: "DetailViewController", bundle: nil)
-        
-        detailsViewController.selectedSection = dataSource[sender.tag].name
-        detailsViewController.delegate = self
-        navigationController?.pushViewController(detailsViewController, animated: true)
     }
 }
 
@@ -193,5 +153,35 @@ extension SecondViewController: DetailViewControllerDelegate {
         }
         
         contentTableView.reloadData()
+    }
+}
+
+//MARK: - CustomHeaderView Delegate Methods
+extension SecondViewController: CustomHeaderViewDelegate {
+    func customHeaderViewDelegate(_ sender: CustomHeaderView, didTapOn section: Int) {
+        let section = sender.sectionIndex
+        var indexPathArray = [IndexPath]()
+        
+        for row in dataSource[section].data.indices {
+            let indexPathToChange = IndexPath(row: row, section: section)
+            indexPathArray.append(indexPathToChange)
+        }
+        
+        let isExpanded = dataSource[section].isExpanded
+        dataSource[section].isExpanded = !isExpanded
+        
+        if isExpanded {
+            contentTableView.deleteRows(at: indexPathArray, with: .fade)
+        } else {
+            contentTableView.insertRows(at: indexPathArray, with: .fade)
+        }
+    }
+    
+    func customHeaderViewDelegate(_ sender: CustomHeaderView, didTapOnAdd section: Int) {
+        let detailsViewController = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        
+        detailsViewController.selectedSection = dataSource[section].name
+        detailsViewController.delegate = self
+        navigationController?.pushViewController(detailsViewController, animated: true)
     }
 }

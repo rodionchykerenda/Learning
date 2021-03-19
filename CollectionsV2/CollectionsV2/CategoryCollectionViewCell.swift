@@ -13,11 +13,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var deviceImage: UIImageView!
     @IBOutlet private weak var modelNameLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func update(device: DeviceModel) {
         modelNameLabel.text = device.name
         deviceImage.image = UIImage(named: device.image ?? "Unknown.pdf")
